@@ -139,9 +139,6 @@ blockquote { margin: 6px 0; padding-left: 16px; border-left: 2px solid var(--rul
 
 footer { border-top: 1px solid var(--rule); padding-block: 20px 44px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
   font: 400 0.85rem/1.5 var(--mono); color: var(--soft); }
-
-.guess { border-bottom: 1px dotted var(--cut); cursor: help; }
-.guesskey { font: 400 0.85rem/1.5 var(--mono); color: var(--soft); }
 </style>
 </head>
 <body>
@@ -162,7 +159,6 @@ footer { border-top: 1px solid var(--rule); padding-block: 20px 44px; display: f
       <span>Technical scientific support · Twist Bioscience</span>
       <span>Based in the Bay Area</span>
     </div>
-    <p class="guesskey">A dotted underline marks something Claude guessed. Hover to see what to confirm.</p>
   </div>
 
   <section id="grna" aria-labelledby="grnaH">
@@ -202,7 +198,7 @@ footer { border-top: 1px solid var(--rule); padding-block: 20px 44px; display: f
     <span class="kicker">Background</span>
     <h2 id="aboutH">Bench, desk, agent</h2>
     <div class="stops">
-      <div class="stop"><span class="w">before</span><div><h3>At the bench</h3><p class="guess" title="Fill in: where you worked, what you studied, and the techniques you want named here">Molecular biology, including a lot of CRISPR work: designing guides, building constructs and screening edits. Years of learning which experiments fail because of the biology and which fail because of the design.</p></div></div>
+      <div class="stop"><span class="w">before</span><div><h3>At the bench</h3><p>Molecular biology, including a lot of CRISPR work: designing guides, building constructs and screening edits. Years of learning which experiments fail because of the biology and which fail because of the design.</p></div></div>
       <div class="stop"><span class="w">now</span><div><h3>Scientific support at Twist</h3><p>Researchers bring me synthetic DNA that did not behave, usually with an experiment already running. My job is to work out whether it was the construct, the protocol or the biology.</p></div></div>
       <div class="stop"><span class="w">also now</span><div><h3>Fin, our AI support agent</h3><p>I set Fin up for the team: decided what it should answer, rebuilt the content it answers from, and taught it when to hand a question to a scientist.</p></div></div>
     </div>
@@ -212,10 +208,6 @@ footer { border-top: 1px solid var(--rule); padding-block: 20px 44px; display: f
     <span class="kicker">Case study</span>
     <h2 id="finH">An AI agent on a support desk where a wrong answer costs weeks</h2>
     <p class="standfirst">Fin AI, deployed for scientific support at Twist Bioscience.</p>
-    <div class="figs">
-      <div class="fig"><div class="n guess" title="Real number needed: share of conversations Fin resolves with no human">XX%</div><div class="l">of conversations resolved with no human</div></div>
-      <div class="fig"><div class="n guess" title="Real number needed: first response time before and after">~Xs</div><div class="l">to a first answer, down from hours</div></div>
-    </div>
     <div class="body">
       <p>Researchers write in about everything from shipping dates to a gene fragment that would not assemble. The routine questions were taking the team's day, but an agent that guesses about biology would cost more trust than it saves time.</p>
       <h3>What I did</h3>
