@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tejas Rao</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Tejas Rao: molecular biologist in scientific support, building and tuning AI that answers researchers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a quiet single column on pale stock. One editorial serif, one mono for sequence.
+   Color is used only where it carries meaning: guide, PAM, cut. */
+:root {
+  --paper: #edeeea;
+  --raise: #f7f8f5;
+  --ink: #16181a;
+  --soft: #5f6670;
+  --rule: #c9ccc4;
+  --guide: #2c5f8a;   /* protospacer */
+  --pam: #9a6b14;     /* NGG */
+  --cut: #a3382f;     /* blunt cut site */
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121415; --raise: #1a1d1f; --ink: #e8e9e5; --soft: #9aa1a8; --rule: #30343a;
+  --guide: #7fb3dc; --pam: #d8aa52; --cut: #e0837a; color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --paper: #121415; --raise: #1a1d1f; --ink: #e8e9e5; --soft: #9aa1a8; --rule: #30343a;
+  --guide: #7fb3dc; --pam: #d8aa52; --cut: #e0837a; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.65 var(--sans); }
+p { margin: 0; max-width: 64ch; }
+h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 400; line-height: 1.08; text-wrap: balance; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--guide); outline-offset: 3px; }
+
+.page { max-width: 760px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+.top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px 24px; flex-wrap: wrap; padding-block: 26px 0; }
+.top .mark { font: 500 0.9rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+.top .right { display: flex; gap: 18px; align-items: baseline; font: 400 0.9rem/1 var(--sans); }
+.top a.ln { text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
+.top a.ln:hover { border-bottom-color: var(--ink); }
+.tbtn { font: 400 0.85rem/1 var(--mono); background: none; border: 0; color: var(--soft); cursor: pointer; padding: 0; }
+.tbtn:hover { color: var(--ink); }
+
+/* Hero */
+.hero { padding-block: 64px 44px; display: grid; gap: 26px; }
+.hero h1 { font-size: clamp(2.4rem, 6.4vw, 4.2rem); letter-spacing: -0.015em; }
+.hero h1 i { font-style: italic; font-weight: 300; }
+.hero .lede { font-family: var(--serif); font-size: clamp(1.2rem, 2.5vw, 1.55rem); line-height: 1.4; font-weight: 300; max-width: 50ch; }
+.hero .meta { font: 400 0.9rem/1.7 var(--mono); color: var(--soft); display: grid; gap: 2px; }
+
+section { padding-block: 56px; border-top: 1px solid var(--rule); scroll-margin-top: 12px; }
+.kicker { font: 500 0.78rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 14px; }
+h2 { font-size: clamp(1.8rem, 4.2vw, 2.6rem); letter-spacing: -0.01em; }
+.standfirst { margin-top: 12px; color: var(--soft); max-width: 60ch; }
+
+/* gRNA tool */
+.tool { margin-top: 26px; display: grid; gap: 18px; }
+.tool label { font: 500 0.82rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 8px; }
+.tool textarea { width: 100%; min-height: 96px; resize: vertical; font: 400 0.95rem/1.8 var(--mono); letter-spacing: .06em;
+  background: var(--raise); color: var(--ink); border: 1px solid var(--rule); border-radius: 2px; padding: 12px 14px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.btn { font: 500 0.9rem/1 var(--sans); background: var(--ink); color: var(--paper); border: 1px solid var(--ink); border-radius: 2px; padding: 10px 14px; cursor: pointer; }
+.btn.ghost { background: none; color: var(--ink); border-color: var(--rule); }
+.btn.ghost:hover { border-color: var(--ink); }
+.hint { font-size: 0.9rem; color: var(--soft); }
+
+.seqbox { background: var(--raise); border: 1px solid var(--rule); border-radius: 2px; padding: 14px; }
+.seq { font: 400 0.95rem/2.1 var(--mono); letter-spacing: .1em; word-break: break-all; margin: 0; }
+.seq .g { color: var(--guide); border-bottom: 2px solid var(--guide); }
+.seq .p { color: var(--pam); border-bottom: 2px solid var(--pam); font-weight: 500; }
+.seq .cutmark { color: var(--cut); font-weight: 500; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 20px; font: 400 0.85rem/1.4 var(--mono); color: var(--soft); }
+.legend b { font-weight: 500; }
+.legend .lg { color: var(--guide); } .legend .lp { color: var(--pam); } .legend .lc { color: var(--cut); }
+
+.tbl-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 0.95rem; }
+th, td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; vertical-align: top; }
+th { font: 500 0.75rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--soft); padding-bottom: 8px; }
+tbody tr { cursor: pointer; }
+tbody tr:hover td, tbody tr[aria-selected="true"] td { background: color-mix(in srgb, var(--guide) 12%, transparent); }
+td.sp { font-family: var(--mono); letter-spacing: .06em; }
+td.sp .pamtail { color: var(--pam); }
+.flag { font: 400 0.78rem/1.4 var(--mono); color: var(--cut); display: block; margin-top: 3px; }
+.score { display: inline-flex; align-items: center; gap: 7px; }
+.bar { width: 48px; height: 5px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--guide); }
+.empty { color: var(--soft); font-style: italic; }
+details.method { margin-top: 4px; }
+details.method summary { cursor: pointer; font-size: 0.92rem; color: var(--soft); }
+details.method p { margin-top: 8px; font-size: 0.95rem; color: var(--soft); }
+
+/* About */
+.stops { margin-top: 26px; display: grid; }
+.stop { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 20px; padding-block: 20px; border-bottom: 1px solid var(--rule); }
+.stop:first-child { border-top: 1px solid var(--rule); }
+@media (max-width: 620px) { .stop { grid-template-columns: minmax(0, 1fr); gap: 6px; } }
+.stop .w { font: 400 0.85rem/1.6 var(--mono); color: var(--soft); }
+.stop h3 { font-size: 1.35rem; margin-bottom: 6px; }
+.stop p { font-size: 1rem; }
+
+/* Fin */
+.figs { margin-top: 26px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; border-block: 1px solid var(--rule); padding-block: 20px; }
+@media (max-width: 560px) { .figs { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
+.fig .n { font-family: var(--serif); font-size: clamp(2.2rem, 7vw, 3rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.fig .l { font-size: 0.95rem; color: var(--soft); margin-top: 4px; }
+.body { margin-top: 26px; display: grid; gap: 16px; }
+.body h3 { font-size: 1.3rem; }
+.body ul { margin: 0; padding-left: 1.15em; display: grid; gap: 7px; max-width: 64ch; }
+blockquote { margin: 6px 0; padding-left: 16px; border-left: 2px solid var(--rule); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 300; max-width: 46ch; }
+
+/* Projects */
+.work { margin-top: 26px; display: grid; }
+.item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; padding-block: 18px; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.item:first-child { border-top: 1px solid var(--rule); }
+.item h3 { font-size: 1.3rem; grid-column: 1; }
+.item .st { grid-column: 2; grid-row: 1; font: 400 0.78rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--soft); }
+.item p { grid-column: 1 / -1; font-size: 1rem; }
+.item .stack { grid-column: 1 / -1; font: 400 0.82rem/1 var(--mono); color: var(--soft); margin-top: 2px; }
+
+/* Contact */
+.hi { padding-bottom: 20px; }
+.hi .big { font-family: var(--serif); font-size: clamp(1.45rem, 3.6vw, 2.1rem); font-weight: 300; text-decoration: none; border-bottom: 1px solid var(--rule); word-break: break-word; }
+.hi .big:hover { border-bottom-color: var(--ink); }
+
+footer { border-top: 1px solid var(--rule); padding-block: 20px 44px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;
+  font: 400 0.85rem/1.5 var(--mono); color: var(--soft); }
+
+.guess { border-bottom: 1px dotted var(--cut); cursor: help; }
+.guesskey { font: 400 0.85rem/1.5 var(--mono); color: var(--soft); }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="top">
+    <a class="mark" href="#top">Tejas Rao</a>
+    <div class="right">
+      <a class="ln" href="https://www.linkedin.com/in/tejas-rao/" target="_blank" rel="noopener">LinkedIn</a>
+      <button class="tbtn" id="themeBtn" type="button">theme: auto</button>
+    </div>
+  </header>
+
+  <div class="hero" id="top">
+    <h1>Molecular biologist<br><i>who now also builds</i><br>the AI that answers scientists.</h1>
+    <p class="lede">I spend my days on the hard end of scientific support, working out why someone's experiment did not do what it should. I also set up and tune the AI that answers them.</p>
+    <div class="meta">
+      <span>Technical scientific support · Twist Bioscience</span>
+      <span>Based in the Bay Area</span>
+    </div>
+    <p class="guesskey">A dotted underline marks something Claude guessed. Hover to see what to confirm.</p>
+  </div>
+
+  <section id="grna" aria-labelledby="grnaH">
+    <span class="kicker">Something to play with</span>
+    <h2 id="grnaH">Guide RNA finder</h2>
+    <p class="standfirst">A leftover habit from my CRISPR days. Paste any DNA sequence and this finds every SpCas9 target in it, on both strands, then ranks the guides the way I would at the bench.</p>
+    <div class="tool">
+      <div>
+        <label for="dnaIn">Target sequence</label>
+        <textarea id="dnaIn" spellcheck="false" autocomplete="off">GAGTCCGAGCAGAAGAAGAAGGGCTCCCATCACATCAACCGGTGGCGCATTGCCACGAAGCAGGCCAATGGGGAGGACATCGATGTCACCTCCAATGACTAGGGTGGGCAACCACAAACCCACGAGGGCAGAGTGCTGCTTGCTGCTGGCCAGGCCCCTGCGTGGGCCCAAGCTGGACTCTGGCCACTCCCTGGCCAGGCTTTGGGGAGGCCTGGAGTCATGGCCCCACAGGGCTTGAAGCCCGGGGCCGCCATTGACAGAG</textarea>
+      </div>
+      <div class="row">
+        <button class="btn" id="findBtn" type="button">Find guides</button>
+        <button class="btn ghost" id="randBtn" type="button">Random sequence</button>
+        <span class="hint" id="count"></span>
+      </div>
+      <div class="seqbox"><p class="seq" id="seqView"></p></div>
+      <div class="legend">
+        <span><b class="lg">underlined blue</b> protospacer, 20 nt</span>
+        <span><b class="lp">gold</b> PAM, NGG</span>
+        <span><b class="lc">&#124;</b> blunt cut, 3 nt from the PAM</span>
+      </div>
+      <div class="tbl-wrap">
+        <table id="hits">
+          <thead><tr><th scope="col">Guide, 5&#8242;&#8594;3&#8242;</th><th scope="col">Strand</th><th scope="col">Cut at</th><th scope="col">GC</th><th scope="col">Score</th></tr></thead>
+          <tbody id="hitBody"></tbody>
+        </table>
+      </div>
+      <details class="method">
+        <summary>How it scores</summary>
+        <p>A guide starts at 100 and loses points for the things that usually cost you an experiment: GC content outside 40 to 60 percent, a TTTT run that terminates Pol III transcription, a G or C homopolymer of four or more, and no G at the 5&#8242; end for U6 transcription. It is a rule-of-thumb filter, not an on-target efficiency model, and it says nothing about off-targets. For real work, put your pick through a proper design tool.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="aboutH">
+    <span class="kicker">Background</span>
+    <h2 id="aboutH">Bench, desk, agent</h2>
+    <div class="stops">
+      <div class="stop"><span class="w">before</span><div><h3>At the bench</h3><p class="guess" title="Fill in: where you worked, what you studied, and the techniques you want named here">Molecular biology, including a lot of CRISPR work: designing guides, building constructs and screening edits. Years of learning which experiments fail because of the biology and which fail because of the design.</p></div></div>
+      <div class="stop"><span class="w">now</span><div><h3>Scientific support at Twist</h3><p>Researchers bring me synthetic DNA that did not behave, usually with an experiment already running. My job is to work out whether it was the construct, the protocol or the biology.</p></div></div>
+      <div class="stop"><span class="w">also now</span><div><h3>Fin, our AI support agent</h3><p>I set Fin up for the team: decided what it should answer, rebuilt the content it answers from, and taught it when to hand a question to a scientist.</p></div></div>
+    </div>
+  </section>
+
+  <section id="fin" aria-labelledby="finH">
+    <span class="kicker">Case study</span>
+    <h2 id="finH">An AI agent on a support desk where a wrong answer costs weeks</h2>
+    <p class="standfirst">Fin AI, deployed for scientific support at Twist Bioscience.</p>
+    <div class="figs">
+      <div class="fig"><div class="n guess" title="Real number needed: share of conversations Fin resolves with no human">XX%</div><div class="l">of conversations resolved with no human</div></div>
+      <div class="fig"><div class="n guess" title="Real number needed: first response time before and after">~Xs</div><div class="l">to a first answer, down from hours</div></div>
+    </div>
+    <div class="body">
+      <p>Researchers write in about everything from shipping dates to a gene fragment that would not assemble. The routine questions were taking the team's day, but an agent that guesses about biology would cost more trust than it saves time.</p>
+      <h3>What I did</h3>
+      <ul>
+        <li>Read through months of past conversations and sorted them into safe for AI, handle with care, and always a scientist.</li>
+        <li>Rewrote the help content so every answer had one clear source to cite.</li>
+        <li>Wrote the handoff rules: anything tied to a specific order, sequence or failed experiment goes to a person, with the conversation summarised.</li>
+        <li>Sampled answers weekly, tagged each miss by cause, and fixed the cause rather than the symptom.</li>
+      </ul>
+      <h3>What stuck</h3>
+      <ul>
+        <li>Most of what looked like model failure was missing or messy content.</li>
+        <li>A clean handoff is a feature. People trust an agent that knows where its knowledge ends.</li>
+      </ul>
+      <blockquote>It got better every time I fixed a document, not a prompt.</blockquote>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="workH">
+    <span class="kicker">Side work</span>
+    <h2 id="workH">Small things I am building</h2>
+    <div class="work">
+      <div class="item"><h3>Guide RNA finder</h3><span class="st">live, above</span><p>Scans both strands for NGG PAMs, pulls the 20 nt protospacer, marks the blunt cut site and scores each guide on GC, homopolymers and Pol III terminators.</p><span class="stack">JavaScript, no dependencies</span></div>
+      <div class="item"><h3>Edit outcome reader</h3><span class="st">next up</span><p>Paste the trace from an edited pool and get an estimate of editing efficiency, with the indel sizes it thinks it sees.</p><span class="stack">Python</span></div>
+      <div class="item"><h3>Ticket exam</h3><span class="st">next up</span><p>Fifty hard support questions about synthetic DNA, with ideal answers, and a script that grades an AI agent on accuracy and on handing off when it should.</p><span class="stack">Python, LLM evals</span></div>
+      <div class="item"><h3>Protocol buddy</h3><span class="st">idea</span><p>Ask a bench question, get an answer drawn from public protocols with the exact step it came from.</p><span class="stack">retrieval, citations</span></div>
+    </div>
+  </section>
+
+  <section id="hi" class="hi" aria-labelledby="hiH">
+    <span class="kicker">Contact</span>
+    <h2 id="hiH">Say hello</h2>
+    <p class="standfirst">Happy to talk about synthetic DNA, a CRISPR design that will not behave, or putting AI somewhere it has to be right.</p>
+    <p style="margin-top:18px"><a class="big" href="https://www.linkedin.com/in/tejas-rao/" target="_blank" rel="noopener">linkedin.com/in/tejas-rao &#8599;</a></p>
+  </section>
+
+  <footer>
+    <span>&#169; 2026 Tejas Rao</span>
+    <span>Hand-written HTML, CSS and JavaScript.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement, tb = document.getElementById('themeBtn');
+  var modes = ['auto', 'light', 'dark'], mode = 'auto';
+  try { mode = localStorage.getItem('tr-theme') || 'auto'; } catch (e) {}
+  function paint() { if (mode === 'auto') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', mode); tb.textContent = 'theme: ' + mode; }
+  tb.addEventListener('click', function () { mode = modes[(modes.indexOf(mode) + 1) % 3]; try { localStorage.setItem('tr-theme', mode); } catch (e) {} paint(); });
+  paint();
+
+  var area = document.getElementById('dnaIn'), view = document.getElementById('seqView'),
+      tbody = document.getElementById('hitBody'), count = document.getElementById('count');
+  var seq = '', hits = [], picked = 0;
+
+  function clean(s) { return (s || '').toUpperCase().replace(/[^ACGT]/g, ''); }
+  function rc(s) { var m = { A: 'T', T: 'A', G: 'C', C: 'G' }; return s.split('').reverse().map(function (c) { return m[c]; }).join(''); }
+  function gcOf(s) { return s.replace(/[AT]/g, '').length / s.length * 100; }
+
+  function score(sp) {
+    var pts = 100, notes = [], g = gcOf(sp);
+    if (g < 40 || g > 60) { pts -= Math.min(30, Math.round(Math.abs(g - 50) - 10) * 2); notes.push(g < 40 ? 'low GC' : 'high GC'); }
+    if (sp.indexOf('TTTT') >= 0) { pts -= 40; notes.push('TTTT terminator'); }
+    if (/G{4,}|C{4,}/.test(sp)) { pts -= 15; notes.push('homopolymer'); }
+    if (sp.charAt(0) !== 'G') { pts -= 10; notes.push('no 5′ G'); }
+    return { pts: Math.max(0, Math.min(100, pts)), notes: notes };
+  }
+
+  // Returns hits with coordinates on the displayed (plus) strand.
+  // plus:  [start, start+20) protospacer, [start+20, start+23) PAM, cut between start+16 and start+17
+  // minus: PAM occupies [start-3, start) on the plus strand, protospacer [start, start+20), cut between start+2 and start+3
+  function find(s) {
+    var out = [], i, sp, sc;
+    for (i = 20; i + 3 <= s.length; i++) {
+      if (s.charAt(i + 1) === 'G' && s.charAt(i + 2) === 'G') {
+        sp = s.slice(i - 20, i); if (sp.length !== 20) continue;
+        sc = score(sp);
+        out.push({ sp: sp, pam: s.slice(i, i + 3), strand: '+', start: i - 20, pamStart: i,
+          cutAfter: i - 4, cutPos: i - 3, gc: gcOf(sp), pts: sc.pts, notes: sc.notes });
+      }
+    }
+    for (i = 0; i + 23 <= s.length; i++) {
+      // minus-strand PAM reads CCN on the plus strand
+      if (s.charAt(i) === 'C' && s.charAt(i + 1) === 'C') {
+        var plusSpan = s.slice(i + 3, i + 23); if (plusSpan.length !== 20) continue;
+        sp = rc(plusSpan); sc = score(sp);
+        out.push({ sp: sp, pam: rc(s.slice(i, i + 3)), strand: '−', start: i + 3, pamStart: i,
+          cutAfter: i + 2, cutPos: i + 3, gc: gcOf(sp), pts: sc.pts, notes: sc.notes });
+      }
+    }
+    out.sort(function (a, b) { return b.pts - a.pts || a.cutPos - b.cutPos; });
+    return out.slice(0, 12);
+  }
+
+  function draw() {
+    if (!seq) { view.innerHTML = '<span class="empty">Nothing to read. Paste some A, C, G and T.</span>'; return; }
+    var h = hits[picked], mark = [], n;
+    for (n = 0; n < seq.length; n++) mark.push(0);
+    var cutAfter = -1;
+    if (h) {
+      for (n = h.start; n < h.start + 20 && n < seq.length; n++) if (n >= 0) mark[n] = 1;
+      for (n = h.pamStart; n < h.pamStart + 3 && n < seq.length; n++) if (n >= 0) mark[n] = 2;
+      cutAfter = h.cutAfter;
+    }
+    var out = '', run = -1, buf = '';
+    function flush() {
+      if (!buf) return;
+      out += run === 1 ? '<span class="g">' + buf + '</span>' : run === 2 ? '<span class="p">' + buf + '</span>' : buf;
+      buf = '';
+    }
+    for (n = 0; n < seq.length; n++) {
+      if (mark[n] !== run) { flush(); run = mark[n]; }
+      buf += seq.charAt(n);
+      if (n === cutAfter) { flush(); out += '<span class="cutmark">|</span>'; }
+    }
+    flush();
+    view.innerHTML = out;
+  }
+
+  function rows() {
+    tbody.innerHTML = '';
+    if (!hits.length) { tbody.innerHTML = '<tr><td colspan="5" class="empty">No NGG target in this sequence.</td></tr>'; return; }
+    hits.forEach(function (h, i) {
+      var tr = document.createElement('tr');
+      tr.setAttribute('aria-selected', i === picked ? 'true' : 'false');
+      tr.innerHTML = '<td class="sp">' + h.sp + '<span class="pamtail"> ' + h.pam + '</span>' +
+        (h.notes.length ? '<span class="flag">' + h.notes.join(', ') + '</span>' : '') + '</td>' +
+        '<td>' + h.strand + '</td><td>' + h.cutPos + '</td><td>' + Math.round(h.gc) + '%</td>' +
+        '<td><span class="score"><span class="bar"><i style="width:' + h.pts + '%"></i></span>' + h.pts + '</span></td>';
+      tr.addEventListener('click', function () { picked = i; rows(); draw(); });
+      tbody.appendChild(tr);
+    });
+  }
+
+  function run() {
+    seq = clean(area.value); picked = 0; hits = seq ? find(seq) : [];
+    count.textContent = seq ? seq.length + ' bp, ' + hits.length + ' guide' + (hits.length === 1 ? '' : 's') + ' shown' : '';
+    rows(); draw();
+  }
+
+  document.getElementById('findBtn').addEventListener('click', run);
+  area.addEventListener('input', run);
+  document.getElementById('randBtn').addEventListener('click', function () {
+    var b = 'ACGT', s = '', i;
+    for (i = 0; i < 200; i++) s += b.charAt(Math.floor(Math.random() * 4));
+    area.value = s; run();
+  });
+  run();
+})();
+</script>
+</body>
+</html>
