@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tejas Rao</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Tejas Rao: molecular biologist in scientific support, building and tuning AI that answers researchers.">
+<meta name="description" content="Tejas Rao deploys AI agents in places where a wrong answer costs weeks. Built Twist Bioscience's Fin support agent to 60 percent autonomous resolution.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -120,8 +120,8 @@ details.method p { margin-top: 8px; font-size: 0.95rem; color: var(--soft); }
 .stop p { font-size: 1rem; }
 
 /* Fin */
-.figs { margin-top: 26px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; border-block: 1px solid var(--rule); padding-block: 20px; }
-@media (max-width: 560px) { .figs { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
+.figs { margin-top: 4px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; border-block: 1px solid var(--rule); padding-block: 20px; }
+@media (max-width: 680px) { .figs { grid-template-columns: minmax(0, 1fr); gap: 18px; } }
 .fig .n { font-family: var(--serif); font-size: clamp(2.2rem, 7vw, 3rem); line-height: 1; font-variant-numeric: tabular-nums; }
 .fig .l { font-size: 0.95rem; color: var(--soft); margin-top: 4px; }
 .body { margin-top: 26px; display: grid; gap: 16px; }
@@ -159,13 +159,59 @@ footer { border-top: 1px solid var(--rule); padding-block: 20px 44px; display: f
   </header>
 
   <div class="hero" id="top">
-    <h1>Molecular biologist<br><i>who now also builds</i><br>the AI that answers scientists.</h1>
-    <p class="lede">I spend my days on the hard end of scientific support, working out why someone's experiment did not do what it should. I also set up and tune the AI that answers them.</p>
+    <h1>I deploy AI agents<br><i>into places where</i><br>a wrong answer costs weeks.</h1>
+    <p class="lede">I proposed, built and shipped the AI support agent at Twist Bioscience, where our customers are researchers with experiments already running. It now answers most of them on its own, and knows which questions to hand to a human. I know which ones those are because I spent six years at the bench running CRISPR screens.</p>
+    <div class="figs">
+      <div class="fig"><div class="n">60%</div><div class="l">of about 1,000 conversations a month resolved with no human, up from zero</div></div>
+      <div class="fig"><div class="n">93%</div><div class="l">customer satisfaction on the conversations it handles</div></div>
+      <div class="fig"><div class="n">200</div><div class="l">support hours given back to the team each month</div></div>
+    </div>
     <div class="meta">
-      <span>Technical scientific support · Twist Bioscience</span>
-      <span>Based in the Bay Area</span>
+      <span>Technical Support Specialist · Twist Bioscience · San Francisco</span>
+      <span>Intercom and Fin · MCP integrations · RAG knowledge systems · Python, SQL, R</span>
     </div>
   </div>
+
+  <section id="fin" aria-labelledby="finH">
+    <span class="kicker">Case study</span>
+    <h2 id="finH">Building Twist's AI support agent from nothing</h2>
+    <p class="standfirst">Fin on Intercom, live since June 2026. Nobody asked for it. I proposed it, won support and sales leadership over, and built it.</p>
+    <div class="body">
+      <p>Twist sells synthetic DNA to researchers. They write in about everything from a shipping date to a gene fragment that would not assemble, and a confident wrong answer can cost someone a month of lab work. The routine questions were eating the team's week, but a guessing agent would have cost more trust than it saved time.</p>
+      <h3>How I got it to 60 percent</h3>
+      <ul>
+        <li>Read months of past conversations and sorted them into safe to automate, handle with care, and always a scientist.</li>
+        <li>Turned scattered scientific documentation into a structured, retrieval-ready knowledge base, so every answer has one source behind it.</li>
+        <li>Designed the guardrails that decide what the agent answers and what it routes, and built context-aware handoff that sends each one to sales, customer support or technical support.</li>
+        <li>Reviewed conversations every week, tagged each miss by cause, and fixed the cause rather than the symptom. That is what moved resolution from 0 to 60 percent in five months, with satisfaction holding at 93.</li>
+      </ul>
+      <h3>From answering to doing</h3>
+      <ul>
+        <li>Extended the agent past questions into tasks, using MCP integrations across Intercom, JIRA, ServiceNow and Salesforce.</li>
+        <li>Order cancellations that used to mean manual updates in three systems now run end to end, as do account manager lookups.</li>
+      </ul>
+      <h3>What stuck</h3>
+      <ul>
+        <li>Most of what looked like model failure was missing or messy content.</li>
+        <li>A clean handoff is a feature. People trust an agent that knows where its knowledge ends.</li>
+      </ul>
+      <blockquote>It got better every time I fixed a document, not a prompt.</blockquote>
+      <p class="hint">Twist gave this work the Innovation in Global Support Award in 2026.</p>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="workH">
+    <span class="kicker">Side work</span>
+    <h2 id="workH">Things I build on my own time</h2>
+    <p class="standfirst">Including this page, which is hand-written HTML, CSS and JavaScript with no framework and no build step.</p>
+    <div class="work">
+      <div class="item"><h3>Name to DNA</h3><span class="st">live, below</span><p>Reads each letter as a one-letter amino acid code and back-translates it with <i>E. coli</i>'s preferred codons, start to stop.</p><span class="stack">JavaScript, no dependencies</span></div>
+      <div class="item"><h3>Guide RNA finder</h3><span class="st">next up</span><p>Scans both strands for NGG PAMs, pulls each 20 nt protospacer, marks the blunt cut site and scores guides on GC, homopolymers and Pol III terminators.</p><span class="stack">JavaScript</span></div>
+      <div class="item"><h3>Edit outcome reader</h3><span class="st">next up</span><p>Paste the trace from an edited pool and get an estimate of editing efficiency, with the indel sizes it thinks it sees.</p><span class="stack">Python</span></div>
+      <div class="item"><h3>Ticket exam</h3><span class="st">next up</span><p>Fifty hard support questions about synthetic DNA, with ideal answers, and a script that grades an AI agent on accuracy and on handing off when it should.</p><span class="stack">Python, LLM evals</span></div>
+      <div class="item"><h3>Protocol buddy</h3><span class="st">idea</span><p>Ask a bench question, get an answer drawn from public protocols with the exact step it came from.</p><span class="stack">retrieval, citations</span></div>
+    </div>
+  </section>
 
   <section id="dna" aria-labelledby="dnaH">
     <span class="kicker">Something to play with</span>
@@ -184,52 +230,21 @@ footer { border-top: 1px solid var(--rule); padding-block: 20px 44px; display: f
 
   <section id="about" aria-labelledby="aboutH">
     <span class="kicker">Background</span>
-    <h2 id="aboutH">Bench, desk, agent</h2>
+    <h2 id="aboutH">Why the science matters here</h2>
+    <p class="standfirst">An agent is only as good as the judgement behind it. Mine comes from a decade of being the person on the other end of these questions.</p>
     <div class="stops">
-      <div class="stop"><span class="w">before</span><div><h3>At the bench</h3><p>Molecular biology, including a lot of CRISPR work: designing guides, building constructs and screening edits. Years of learning which experiments fail because of the biology and which fail because of the design.</p></div></div>
-      <div class="stop"><span class="w">now</span><div><h3>Scientific support at Twist</h3><p>Researchers bring me synthetic DNA that did not behave, usually with an experiment already running. My job is to work out whether it was the construct, the protocol or the biology.</p></div></div>
-      <div class="stop"><span class="w">also now</span><div><h3>Fin, our AI support agent</h3><p>I set Fin up for the team: decided what it should answer, rebuilt the content it answers from, and taught it when to hand a question to a scientist.</p></div></div>
+      <div class="stop"><span class="w">2025 to now</span><div><h3>Technical support, Twist Bioscience</h3><p>Around 80 technical questions a week from researchers and field sales on synthetic genes, oligo pools and DNA libraries. Working out whether a failure was the construct, the protocol or the biology is what taught me where an agent should stop.</p></div></div>
+      <div class="stop"><span class="w">2023 to 2025</span><div><h3>Functional genomics, Scorpion Therapeutics</h3><p>Ran genome-wide CRISPR screens end to end and found a synthetic lethal relationship in non-small cell lung cancer. Built the NGS library prep pipelines that made screens that size repeatable.</p></div></div>
+      <div class="stop"><span class="w">2021 to 2023</span><div><h3>Platform biology, Mammoth Biosciences</h3><p>Designed high-throughput screens for new epigenetic editors and gene writers, and mapped PAM and guide preferences for proprietary Cas nucleases.</p></div></div>
+      <div class="stop"><span class="w">before that</span><div><h3>Contract research and graduate work</h3><p>Assay workflows on liquid-handling robots at Sangamo and Switch Therapeutics. An NGS analysis pipeline in Python and R for my MSc, which is where the coding started.</p></div></div>
     </div>
-  </section>
-
-  <section id="fin" aria-labelledby="finH">
-    <span class="kicker">Case study</span>
-    <h2 id="finH">An AI agent on a support desk where a wrong answer costs weeks</h2>
-    <p class="standfirst">Fin AI, deployed for scientific support at Twist Bioscience.</p>
-    <div class="body">
-      <p>Researchers write in about everything from shipping dates to a gene fragment that would not assemble. The routine questions were taking the team's day, but an agent that guesses about biology would cost more trust than it saves time.</p>
-      <h3>What I did</h3>
-      <ul>
-        <li>Read through months of past conversations and sorted them into safe for AI, handle with care, and always a scientist.</li>
-        <li>Rewrote the help content so every answer had one clear source to cite.</li>
-        <li>Wrote the handoff rules: anything tied to a specific order, sequence or failed experiment goes to a person, with the conversation summarised.</li>
-        <li>Sampled answers weekly, tagged each miss by cause, and fixed the cause rather than the symptom.</li>
-      </ul>
-      <h3>What stuck</h3>
-      <ul>
-        <li>Most of what looked like model failure was missing or messy content.</li>
-        <li>A clean handoff is a feature. People trust an agent that knows where its knowledge ends.</li>
-      </ul>
-      <blockquote>It got better every time I fixed a document, not a prompt.</blockquote>
-    </div>
-  </section>
-
-  <section id="work" aria-labelledby="workH">
-    <span class="kicker">Side work</span>
-    <h2 id="workH">Small things I am building</h2>
-    <div class="work">
-      <div class="item"><h3>Name to DNA</h3><span class="st">live, above</span><p>Reads each letter as a one-letter amino acid code and back-translates it with <i>E. coli</i>'s preferred codons, start to stop.</p><span class="stack">JavaScript, no dependencies</span></div>
-      <div class="item"><h3>Guide RNA finder</h3><span class="st">next up</span><p>Scans both strands for NGG PAMs, pulls each 20 nt protospacer, marks the blunt cut site and scores guides on GC, homopolymers and Pol III terminators.</p><span class="stack">JavaScript</span></div>
-      <div class="item"><h3>Edit outcome reader</h3><span class="st">next up</span><p>Paste the trace from an edited pool and get an estimate of editing efficiency, with the indel sizes it thinks it sees.</p><span class="stack">Python</span></div>
-      <div class="item"><h3>Ticket exam</h3><span class="st">next up</span><p>Fifty hard support questions about synthetic DNA, with ideal answers, and a script that grades an AI agent on accuracy and on handing off when it should.</p><span class="stack">Python, LLM evals</span></div>
-      <div class="item"><h3>Protocol buddy</h3><span class="st">idea</span><p>Ask a bench question, get an answer drawn from public protocols with the exact step it came from.</p><span class="stack">retrieval, citations</span></div>
-    </div>
+    <p class="standfirst" style="margin-top:20px">MSc in Genetic Manipulation and Molecular Cell Biology, University of Sussex. Applied Bioinformatics certificate, UC San Diego Extension.</p>
   </section>
 
   <section id="hi" class="hi" aria-labelledby="hiH">
     <span class="kicker">Contact</span>
     <h2 id="hiH">Say hello</h2>
-    <p class="standfirst">Happy to talk about synthetic DNA, a CRISPR design that will not behave, or putting AI somewhere it has to be right.</p>
+    <p class="standfirst">Happy to talk about deploying agents, support automation, or a CRISPR design that will not behave.</p>
     <p style="margin-top:18px"><a class="big" href="https://www.linkedin.com/in/tejas-rao/" target="_blank" rel="noopener">linkedin.com/in/tejas-rao &#8599;</a></p>
   </section>
 
