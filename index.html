@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tejas Rao</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Tejas Rao deploys AI agents in places where a wrong answer costs weeks. Built Twist Bioscience's Fin support agent from nothing to a 60 percent reported resolution rate.">
+<meta name="description" content="Tejas Rao builds AI support agents end to end. Proposed, designed and shipped the Fin agent at Twist Bioscience, after a decade at the bench.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -120,8 +120,6 @@ details.method p { margin-top: 8px; font-size: 0.95rem; color: var(--soft); }
 .stop p { font-size: 1rem; }
 
 /* Fin */
-.figs { margin-top: 4px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; border-block: 1px solid var(--rule); padding-block: 20px; }
-@media (max-width: 680px) { .figs { grid-template-columns: minmax(0, 1fr); gap: 18px; } }
 .fig .n { font-family: var(--serif); font-size: clamp(2.2rem, 7vw, 3rem); line-height: 1; font-variant-numeric: tabular-nums; }
 .fig .l { font-size: 0.95rem; color: var(--soft); margin-top: 4px; }
 .body { margin-top: 26px; display: grid; gap: 16px; }
@@ -160,30 +158,26 @@ footer { border-top: 1px solid var(--rule); padding-block: 20px 44px; display: f
 
   <div class="hero" id="top">
     <h1>I deploy AI agents<br><i>into places where</i><br>a wrong answer costs weeks.</h1>
-    <p class="lede">I proposed, built and shipped the AI support agent at Twist Bioscience, where our customers are researchers with experiments already running. It now answers most of them on its own, and knows which questions to hand to a human. I know which ones those are because I spent six years at the bench running CRISPR screens.</p>
-    <div class="figs">
-      <div class="fig"><div class="n">60%</div><div class="l">resolution rate as Fin reports it, up from zero</div></div>
-      <div class="fig"><div class="n">93%</div><div class="l">customer satisfaction on the conversations it handles</div></div>
-      <div class="fig"><div class="n">200</div><div class="l">support hours a month given back to the team, by my estimate</div></div>
-    </div>
+    <p class="lede">I proposed the AI support agent at Twist Bioscience, got leadership behind it, and built the thing end to end: the knowledge base it answers from, the guardrails that decide what it may touch, and the integrations that let it finish a task instead of describing one. Our customers are researchers with experiments already running, so the hard part was never the model. It was deciding what the agent should never do on its own.</p>
     <div class="meta">
       <span>Technical Support Specialist · Twist Bioscience · San Francisco</span>
       <span>Intercom and Fin · MCP integrations · RAG knowledge systems · Python, SQL, R</span>
+      <span><a href="#fin">How I built it &#8595;</a></span>
     </div>
   </div>
 
   <section id="fin" aria-labelledby="finH">
     <span class="kicker">Case study</span>
     <h2 id="finH">Building Twist's AI support agent from nothing</h2>
-    <p class="standfirst">Fin on Intercom, live since June 2026. Nobody asked for it. I proposed it, won support and sales leadership over, and built it.</p>
+    <p class="standfirst">Fin on Intercom, live since June 2026. Nobody asked for it. I proposed it, won support and sales leadership over, and built it. Fin reports it resolving around 60 percent of conversations at 93 percent satisfaction, which I estimate gives the team back about 200 hours a month.</p>
     <div class="body">
       <p>Twist sells synthetic DNA to researchers. They write in about everything from a shipping date to a gene fragment that would not assemble, and a confident wrong answer can cost someone a month of lab work. The routine questions were eating the team's week, but a guessing agent would have cost more trust than it saved time.</p>
-      <h3>How it got there</h3>
+      <h3>What building it actually involved</h3>
       <ul>
         <li>Read months of past conversations and sorted them into safe to automate, handle with care, and always a scientist.</li>
         <li>Turned scattered scientific documentation into a structured, retrieval-ready knowledge base, so every answer has one source behind it.</li>
         <li>Designed the guardrails that decide what the agent answers and what it routes, and built context-aware handoff that sends each one to sales, customer support or technical support.</li>
-        <li>Reviewed conversations every week, tagged each miss by cause, and fixed the cause rather than the symptom. That took Fin's reported resolution rate from zero to 60 percent in five months, with satisfaction holding at 93. I audit a sample myself, and I treat my own count as the real one: it runs below what the platform reports, which is worth knowing before anyone quotes a vendor dashboard at you.</li>
+        <li>Reviewed conversations every week, tagged each miss by cause, and fixed the cause rather than the symptom. That loop, not the setup, is what took it from answering nothing to carrying most of the queue inside five months. I still audit a sample by hand rather than trusting the dashboard.</li>
       </ul>
       <h3>From answering to doing</h3>
       <ul>
